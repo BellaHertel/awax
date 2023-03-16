@@ -1,3 +1,7 @@
+/*
+    Configurações gerais
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
 :root {
     --bgcolor: #000;
@@ -14,23 +18,22 @@
     --bgFiltroProj: #ebebeb;
     --fgFiltroProj: #5f5f5f;
     --linFiltroProj: #d3d3d3;
+    --destaMenu: #ccc;
 }
 
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    overflow-x: hidden;
 }
 
 .button {
     display: inline-block;
-    background-color: var(--decoPrinc);
+    background-color: var(--decopri);
     color: var(--fgColor);
     text-transform: uppercase;
     font-size: 12px;
@@ -43,11 +46,10 @@ body {
 
 
 /*
-Template das sections
+    Template das sections
 */
 
 .default {
-    /*background-color: red;*/
     width: 100vw;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -61,29 +63,27 @@ Template das sections
 }
 
 .default .section-title {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .default .section-desc {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--descColorLight);
     margin-top: 10px;
-    margin-bottom: 40px
+    margin-bottom: 40px;
 }
 
 .default .section-body {
     max-width: 1140px;
     margin: auto;
-    /*min-height: 100px;
-background-color:#ccc;*/
+    min-height: 100px;
 }
 
 .default.light {
     background-color: var(--bgDefLight);
 }
 
-.default.light .section-title,
-.default.light .section-body {
+.default.light .section-title {
     color: var(--titColorLight);
 }
 
@@ -91,23 +91,22 @@ background-color:#ccc;*/
     background-color: var(--bgDefDark);
 }
 
-.default.dark {
+.default.dark .section-desc {
     color: var(--descColorDark);
 }
 
-.default.dark .section-title,
-.default.dark .section-body {
+.default.dark .section-title {
     color: var(--titColorDark);
 }
 
 
 /*
-Cabeçalho
+    Cabeçalho
 */
 
 header {
     height: 100px;
-    background-color: var(--bgColor);
+    background-color: var(--bgcolor);
     color: var(--fgColor);
 }
 
@@ -134,7 +133,7 @@ header {
 
 /*
     Menu
-    */
+*/
 
 .menu {
     flex: 1;
@@ -161,24 +160,25 @@ header {
     height: 100px;
     display: flex;
     align-items: center;
-    border-bottom: 5px solid var(--bgColor);
+    border-bottom: 5px solid var(--bgcolor);
 }
 
-.menu li a:hover,
+.menu li a:hover {
+    border-bottom: 5px solid var(--decopri);
+    color: var(--menusele);
+}
+
 .menu .active a {
-    border-bottom: 5px solid var(--decoPrinc);
-    color: var(--destaMenu);
+    border-bottom: 5px solid var(--decopri);
 }
 
 
 /*
-    Banner - sliders
-    */
+    Banner - Sliders
+*/
 
 .banner {
-    /*height: 100vh;*/
     height: calc(100vh - 100px);
-    /*background-color: red;*/
     background-color: #131313;
     background-image: url("../image/bg.jpg");
     background-size: cover;
@@ -189,10 +189,9 @@ header {
 .banner .sliders {
     width: 1000vw;
     height: 100%;
-    /*background-color: red;*/
 }
 
-.banner .slide {
+.banner .slider {
     width: calc(100vw + 4px);
     height: 100%;
     display: inline-block;
@@ -215,8 +214,8 @@ header {
     font-size: 50px;
 }
 
-.banner h1 span {
-    color: var(--decoPrinc);
+.banner span {
+    color: var(--decopri);
 }
 
 .banner h2 {
@@ -227,7 +226,6 @@ header {
 .banner .sliders-pointers {
     width: 100vw;
     height: 20px;
-    /*background-color: red;*/
     position: absolute;
     margin-top: -50px;
     display: flex;
@@ -238,20 +236,20 @@ header {
 .banner .pointer {
     width: 15px;
     height: 15px;
-    border: 2px solid var(--decoPrinc);
+    border: 2px solid var(--decopri);
     border-radius: 50%;
     margin: 0 5px;
     cursor: pointer;
 }
 
 .banner .pointer.active {
-    background-color: var(--decoPrinc);
+    background-color: var(--decopri);
 }
 
 
 /*
-            section - About Us
-            */
+    Section - About Us
+*/
 
 .section-aboutus {
     display: flex;
@@ -278,9 +276,8 @@ header {
 
 
 /*
-            Section - Services
-
-            */
+    Section - Services
+*/
 
 .section-services {
     display: flex;
@@ -293,11 +290,11 @@ header {
     border-right: 1px solid var(--textService);
 }
 
-.section-services:first-child {
+.section-service:first-child {
     border-left: 1px solid var(--textService);
 }
 
-.section-services h4 {
+.section-service h4 {
     color: var(--textService);
     margin-top: 20px;
     text-transform: uppercase;
@@ -305,45 +302,57 @@ header {
     padding: 0 45px;
 }
 
-.section-services p {
+.section-service p {
     color: var(--textService);
     font-size: 13px;
     margin-top: 10px;
 }
 
+
+/*
+    Section - Projects
+*/
+
+.section-projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .section-projects--filters {
     border: 1px solid var(--linFiltroProj);
-    background-color: var(--linFiltroProj);
+    background-color: var(--bgFiltroProj);
     border-radius: 30px;
     display: inline-block;
     padding: 0 20px;
 }
 
 .section-projects--filters ul,
-.secrion-projects--filters li {
+.section-projects--filters li {
     list-style: none;
 }
 
-.secrion-projects--filters li {
+.section-projects--filters li {
     display: inline-block;
     color: var(--fgFiltroProj);
     padding: 20px 15px;
     text-transform: uppercase;
     font-size: 13px;
     border-left: 1px solid var(--linFiltroProj);
+    border-bottom: 3px solid var(--bgFiltroProj);
     cursor: pointer;
 }
 
-.section-projects--filters li::first-child {
+.section-projects--filters li:first-child {
     border-left: 0;
 }
 
-.secrion-projects--filters li:hover,
-.secrion-projects--filters li.active {
+.section-projects--filters li:hover,
+.section-projects--filters li.active {
     border-bottom: 3px solid var(--decopri);
 }
 
-.secrion-projects--photos {
+.section-projects--photos {
     width: 100vw;
     max-width: 1140px;
     display: flex;
@@ -351,36 +360,46 @@ header {
     justify-content: center;
 }
 
-.secrion-projects--photo {
+.section-projects--photo {
     width: 280px;
 }
 
-.secrion-projects--photoarea {
+.section-projects--photoarea {
     margin: 10px;
     width: 260px;
     height: 160px;
 }
 
-.secrion-projects--photoarea img {
+.section-projects--photoarea img {
     width: inherit;
     height: inherit;
 }
 
-.secrion-projects--photoinfo {
+.section-projects--photoinfo {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.7);
     width: inherit;
     height: inherit;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     color: var(--destaMenu);
     flex-direction: column;
 }
 
-.secrion-projects--photoinfo h5 {
-    font-size: 16px;
+.section-projects--photoinfo h5 {
+    font-size: 17px;
     font-weight: 600;
 }
 
-.secrion-projects--photoinfo p {}
+.section-projects--photoinfo p {
+    font-size: 13px;
+    padding: 10px 40px;
+    line-height: 23px;
+    text-align: center;
+}
+
+.section-projects--photoarea:hover .section-projects--photoinfo {
+    display: flex;
+    cursor: pointer;
+}
